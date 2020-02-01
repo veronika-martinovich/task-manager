@@ -1,0 +1,41 @@
+.nav {
+  width: $nav-width;
+  height: 100vh;
+  margin: 15px;
+  border: $border-blocks;
+  border-radius: 8px;
+  background-color: $background-blocks;
+  box-shadow: $shadow-blocks;
+
+  &_item {
+    width: nav-width;
+    height: 60px;
+    border-bottom: $border-blocks;
+    padding: 5%;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  &_task-box:before {
+    content: "\f01c";
+    font-family: FontAwesome;
+    margin-right: 20px;
+  }
+
+  &_task-focused:before {
+    content: "\f005";
+    font-family: FontAwesome;
+    margin-right: 20px;
+  }
+
+  &_projects:before {
+    content: "\f0b1";
+    font-family: FontAwesome;
+    margin-right: 20px;
+  }
+}
+
+
+
+
+

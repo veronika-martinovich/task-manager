@@ -1,0 +1,17 @@
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: $nav-width;
+  margin-top: 10px;
+  margin-left: 15px;
+
+  &_image {
+    width: 60px;
+    height: 60px;
+  }
+
+  &_text {
+    font-size: 35px;
+  }
+}

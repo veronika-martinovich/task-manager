@@ -1,0 +1,12 @@
+$nav-width: 300px;
+$border-blocks: 1px solid #cfcece;
+$background-blocks: #ffffff;
+$shadow-blocks: 0px 0px 5px #bebebe;
+
+body {
+  background-color: #fcfcfc;
+}
+
+@import '../public/scss/reset';
+@import '../public/scss/logo';
+@import '../public/scss/nav';
