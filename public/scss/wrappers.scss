@@ -1,0 +1,12 @@
+body {
+  background-color: #fcfcfc;
+  font-size: 18px;
+}
+
+.main-wrapper,
+.header-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 1366px;
+  margin: 0 auto;
+}

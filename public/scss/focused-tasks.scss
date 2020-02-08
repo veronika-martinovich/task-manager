@@ -1,0 +1,15 @@
+.focused-tasks  {
+  @extend %block-shared;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: start;
+  margin: 15px;
+
+  &_heading {
+    width: 75%;
+    height: 50px;
+    font-size: 36px;
+    font-weight: normal;
+    margin: 15px;
+  }
+}

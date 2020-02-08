@@ -1,41 +1,88 @@
 .nav {
+  @extend %block-shared;
   width: $nav-width;
-  height: 100vh;
   margin: 15px;
-  border: $border-blocks;
-  border-radius: 8px;
-  background-color: $background-blocks;
-  box-shadow: $shadow-blocks;
 
   &_item {
-    width: nav-width;
+    width: $nav-width - 2px;
     height: 60px;
-    border-bottom: $border-blocks;
-    padding: 5%;
+    border-bottom: $border;
+    /* padding: 15px; */
     font-size: 24px;
-    cursor: pointer;
+
+    &:first-child {
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+    }
+
+    &:hover {
+      background-color: #f5f5f5;
+    }
   }
 
-  &_task-box:before {
-    content: "\f01c";
-    font-family: FontAwesome;
-    margin-right: 20px;
+  &_task-box {
+    @extend %link-shared;
+    padding: 15px;
+    width: $nav-width - 2px;
+    height: 59px;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+
+    &:before {
+      content: "\f01c";
+      font-family: FontAwesome;
+      margin-right: 20px;
+    }
   }
 
-  &_task-focused:before {
-    content: "\f005";
-    font-family: FontAwesome;
-    margin-right: 20px;
+  &_task-focused {
+    @extend %link-shared;
+    padding: 15px;
+    width: $nav-width - 2px;
+    height: 59px;
+
+    &:before {
+      content: "\f005";
+      font-family: FontAwesome;
+      margin-right: 20px;
+    }
   }
 
-  &_projects:before {
-    content: "\f0b1";
-    font-family: FontAwesome;
-    margin-right: 20px;
+  &_projects {
+    @extend %link-shared;
+    padding: 15px;
+    width: $nav-width - 2px;
+    height: 59px;
+
+    &:before {
+      content: "\f0b1";
+      font-family: FontAwesome;
+      margin-right: 20px;
+    }
   }
 }
 
+.projects_list {
+  margin-top: 15px;
+}
 
+.projects_item {
+  @extend %link-shared;
+  width: $nav-width - 65px;
+  height: 40px;
+  margin-left: 45px;
+  padding-top: 6px;
+  padding-left: 6px;
+  font-size: 18px;
+  border-radius: 5px;
 
+  &:before {
+    content: "\f105";
+    font-family: FontAwesome;
+    margin-right: 5px;
+  }
 
-
+  &:hover {
+    background-color: #f5f5f5;
+  }
+}

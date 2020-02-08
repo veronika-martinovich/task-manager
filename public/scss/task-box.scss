@@ -1,0 +1,21 @@
+.task-box  {
+  @extend %block-shared;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: start;
+  margin: 15px;
+
+  &_heading {
+    width: 75%;
+    height: 50px;
+    font-size: 36px;
+    font-weight: normal;
+    margin: 15px;
+  }
+
+  &_btn {
+    @extend %button-shared;
+    width: 15%;
+    margin: 25px;
+  }
+}
