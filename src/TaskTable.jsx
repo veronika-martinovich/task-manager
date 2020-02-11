@@ -11,9 +11,9 @@ export class TaskTable extends React.Component {
     this.state = {
       tasks: null,
       taskType: this.props.taskType
-    }
+    };
   }
-  
+
   componentDidMount() {
     let tasks = [];
     db.collection("tasks")
@@ -27,162 +27,167 @@ export class TaskTable extends React.Component {
         });
         console.log(this.state.tasks);
       });
-    }
+  }
 
   render() {
-    if (!this.state.tasks)
-      return <span>"...Loading"</span>;
-    
-    if (this.state.taskType === "taskBox") 
-    return (
-      <table className="task-table_task-list">
-        <tbody>
-          {this.state.tasks.map(item => {
-            if (!item.projectId) return (
-              <tr className="task-table_task-item" key={item.id}>
-                <td>
-                  <Checkbox
-                    defaultChecked={item.isDone}
-                    onClick={() => {
-                      db.collection("tasks")
-                        .doc(`task${item.id}`)
-                        .update({
-                          isDone: !item.isDone
-                        })
-                        .then(() => {
-                          console.log("Document successfully written!");
-                          const tasksCopy = updateTask(
-                            this.state.tasks,
-                            item.id,
-                            {
-                              isDone: !item.isDone
-                            }
-                          );
-                          this.setState({
-                            tasks: tasksCopy
-                          });
-                        })
-                        .catch(function(error) {
-                          console.error("Error writing document: ", error);
-                        });
-                    }}
-                  />
-                </td>
-                <td>
-                  <span className="task-item_title">{item.title}</span>
-                </td>
-                <td>
-                  <FocusedIcon
-                    fillColor={item.isFocusedOn === false ? '#e6e6e6' : '#fff000'}
-                    onClick={() => {
-                      db.collection("tasks")
-                        .doc(`task${item.id}`)
-                        .update({
-                          isFocusedOn: !item.isFocusedOn
-                        })
-                        .then(() => {
-                          console.log("Document successfully written!");
-                          const tasksCopy = updateTask(
-                            this.state.tasks,
-                            item.id,
-                            {
-                              isFocusedOn: !item.isFocusedOn
-                            }
-                          );
-                          this.setState({
-                            tasks: tasksCopy
-                          });
-                        })
-                        .catch(function(error) {
-                          console.error("Error writing document: ", error);
-                        });
-                    }}
-                  />
-                </td>
-                <td>
-                  <ViewItemIcon/>
-                </td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
-    );
+    if (!this.state.tasks) return <span>"...Loading"</span>;
 
-    if (this.state.taskType === "focusedTasks") 
-    return (
-      <table className="task-table_task-list">
-        <tbody>
-          {this.state.tasks.map(item => {
-            if (item.isFocusedOn) return (
-              <tr className="task-table_task-item" key={item.id}>
-                <td>
-                  <Checkbox
-                    defaultChecked={item.isDone}
-                    onClick={() => {
-                      db.collection("tasks")
-                        .doc(`task${item.id}`)
-                        .update({
-                          isDone: !item.isDone
-                        })
-                        .then(() => {
-                          console.log("Document successfully written!");
-                          const tasksCopy = updateTask(
-                            this.state.tasks,
-                            item.id,
-                            {
+    if (this.state.taskType === "taskBox")
+      return (
+        <table className="task-table_task-list">
+          <tbody>
+            {this.state.tasks.map(item => {
+              if (!item.projectId)
+                return (
+                  <tr className="task-table_task-item" key={item.id}>
+                    <td>
+                      <Checkbox
+                        defaultChecked={item.isDone}
+                        onClick={() => {
+                          db.collection("tasks")
+                            .doc(`task${item.id}`)
+                            .update({
                               isDone: !item.isDone
-                            }
-                          );
-                          this.setState({
-                            tasks: tasksCopy
-                          });
-                        })
-                        .catch(function(error) {
-                          console.error("Error writing document: ", error);
-                        });
-                    }}
-                  />
-                </td>
-                <td>
-                  <span className="task-item_title">{item.title}</span>
-                </td>
-                <td>
-                  <FocusedIcon
-                    fillColor={item.isFocusedOn === false ? '#e6e6e6' : '#fff000'}
-                    onClick={() => {
-                      db.collection("tasks")
-                        .doc(`task${item.id}`)
-                        .update({
-                          isFocusedOn: !item.isFocusedOn
-                        })
-                        .then(() => {
-                          console.log("Document successfully written!");
-                          const tasksCopy = updateTask(
-                            this.state.tasks,
-                            item.id,
-                            {
+                            })
+                            .then(() => {
+                              console.log("Document successfully written!");
+                              const tasksCopy = updateTask(
+                                this.state.tasks,
+                                item.id,
+                                {
+                                  isDone: !item.isDone
+                                }
+                              );
+                              this.setState({
+                                tasks: tasksCopy
+                              });
+                            })
+                            .catch(function(error) {
+                              console.error("Error writing document: ", error);
+                            });
+                        }}
+                      />
+                    </td>
+                    <td>
+                      <span className="task-item_title">{item.title}</span>
+                    </td>
+                    <td>
+                      <FocusedIcon
+                        fillColor={
+                          item.isFocusedOn === false ? "#e6e6e6" : "#fff000"
+                        }
+                        onClick={() => {
+                          db.collection("tasks")
+                            .doc(`task${item.id}`)
+                            .update({
                               isFocusedOn: !item.isFocusedOn
-                            }
-                          );
-                          this.setState({
-                            tasks: tasksCopy
-                          });
-                        })
-                        .catch(function(error) {
-                          console.error("Error writing document: ", error);
-                        });
-                    }}
-                  />
-                </td>
-                <td>
-                  <ViewItemIcon/>
-                </td>
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
-    );
+                            })
+                            .then(() => {
+                              console.log("Document successfully written!");
+                              const tasksCopy = updateTask(
+                                this.state.tasks,
+                                item.id,
+                                {
+                                  isFocusedOn: !item.isFocusedOn
+                                }
+                              );
+                              this.setState({
+                                tasks: tasksCopy
+                              });
+                            })
+                            .catch(function(error) {
+                              console.error("Error writing document: ", error);
+                            });
+                        }}
+                      />
+                    </td>
+                    <td>
+                      <ViewItemIcon />
+                    </td>
+                  </tr>
+                );
+            })}
+          </tbody>
+        </table>
+      );
+
+    if (this.state.taskType === "focusedTasks")
+      return (
+        <table className="task-table_task-list">
+          <tbody>
+            {this.state.tasks.map(item => {
+              if (item.isFocusedOn)
+                return (
+                  <tr className="task-table_task-item" key={item.id}>
+                    <td>
+                      <Checkbox
+                        defaultChecked={item.isDone}
+                        onClick={() => {
+                          db.collection("tasks")
+                            .doc(`task${item.id}`)
+                            .update({
+                              isDone: !item.isDone
+                            })
+                            .then(() => {
+                              console.log("Document successfully written!");
+                              const tasksCopy = updateTask(
+                                this.state.tasks,
+                                item.id,
+                                {
+                                  isDone: !item.isDone
+                                }
+                              );
+                              this.setState({
+                                tasks: tasksCopy
+                              });
+                            })
+                            .catch(function(error) {
+                              console.error("Error writing document: ", error);
+                            });
+                        }}
+                      />
+                    </td>
+                    <td>
+                      <span className="task-item_title">{item.title}</span>
+                    </td>
+                    <td>
+                      <FocusedIcon
+                        fillColor={
+                          item.isFocusedOn === false ? "#e6e6e6" : "#fff000"
+                        }
+                        onClick={() => {
+                          db.collection("tasks")
+                            .doc(`task${item.id}`)
+                            .update({
+                              isFocusedOn: !item.isFocusedOn
+                            })
+                            .then(() => {
+                              console.log("Document successfully written!");
+                              const tasksCopy = updateTask(
+                                this.state.tasks,
+                                item.id,
+                                {
+                                  isFocusedOn: !item.isFocusedOn
+                                }
+                              );
+                              this.setState({
+                                tasks: tasksCopy
+                              });
+                            })
+                            .catch(function(error) {
+                              console.error("Error writing document: ", error);
+                            });
+                        }}
+                      />
+                    </td>
+                    <td>
+                      <ViewItemIcon />
+                    </td>
+                  </tr>
+                );
+            })}
+          </tbody>
+        </table>
+      );
   }
 }
