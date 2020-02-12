@@ -7,7 +7,6 @@
     width: $nav-width - 2px;
     height: 60px;
     border-bottom: $border;
-    /* padding: 15px; */
     font-size: 24px;
 
     &:first-child {
@@ -15,7 +14,7 @@
       border-top-right-radius: $border-radius;
     }
 
-    &:hover {
+    &:hover:not(:last-child) {
       background-color: #f5f5f5;
     }
   }

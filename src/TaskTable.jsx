@@ -9,29 +9,12 @@ export class TaskTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: null,
+      tasks: this.props.tasks,
       taskType: this.props.taskType
     };
   }
 
-  componentDidMount() {
-    let tasks = [];
-    db.collection("tasks")
-      .get()
-      .then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-          tasks.push({id: doc.id, ...doc.data()});
-        });
-        this.setState({
-          tasks
-        });
-        console.log(this.state.tasks);
-      });
-  }
-
   render() {
-    if (!this.state.tasks) return <span>"...Loading"</span>;
-
     if (this.state.taskType === "taskBox")
       return (
         <table className="task-table_task-list">

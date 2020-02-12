@@ -9,3 +9,10 @@ export function updateTask(tasks, taskId, fieldsToUpdate) {
     ...tasks.slice(taskIndex + 1)
   ];
 }
+
+export function createTask(tasks, taskToCreate) {
+  return [
+    ...tasks,
+    taskToCreate
+  ];
+}

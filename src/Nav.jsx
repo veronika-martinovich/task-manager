@@ -40,7 +40,7 @@ export class Nav extends React.Component {
       <nav className="nav">
         <ul className="nav_list">
           <li className="nav_item">
-            <MenuLink to="/task_box" className="nav_task-box">
+            <MenuLink to="/task_box" className="nav_task-box" activeClassName="selected">
             Task box
             </MenuLink>
           </li>
