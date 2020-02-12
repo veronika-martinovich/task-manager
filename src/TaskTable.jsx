@@ -20,7 +20,7 @@ export class TaskTable extends React.Component {
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(doc => {
-          tasks.push(doc.data());
+          tasks.push({id: doc.id, ...doc.data()});
         });
         this.setState({
           tasks
@@ -45,7 +45,7 @@ export class TaskTable extends React.Component {
                         defaultChecked={item.isDone}
                         onClick={() => {
                           db.collection("tasks")
-                            .doc(`task${item.id}`)
+                            .doc(`${item.id}`)
                             .update({
                               isDone: !item.isDone
                             })
@@ -78,7 +78,7 @@ export class TaskTable extends React.Component {
                         }
                         onClick={() => {
                           db.collection("tasks")
-                            .doc(`task${item.id}`)
+                            .doc(`${item.id}`)
                             .update({
                               isFocusedOn: !item.isFocusedOn
                             })
@@ -124,7 +124,7 @@ export class TaskTable extends React.Component {
                         defaultChecked={item.isDone}
                         onClick={() => {
                           db.collection("tasks")
-                            .doc(`task${item.id}`)
+                            .doc(`${item.id}`)
                             .update({
                               isDone: !item.isDone
                             })
@@ -157,7 +157,7 @@ export class TaskTable extends React.Component {
                         }
                         onClick={() => {
                           db.collection("tasks")
-                            .doc(`task${item.id}`)
+                            .doc(`${item.id}`)
                             .update({
                               isFocusedOn: !item.isFocusedOn
                             })

@@ -13,11 +13,12 @@ export class Nav extends React.Component {
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(doc => {
-          projects.push(doc.data());
+          projects.push({id: doc.id, ...doc.data()});
         });
         this.setState({
           projects
         });
+        console.log(projects)
       });
   }
 
