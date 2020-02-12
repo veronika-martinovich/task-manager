@@ -28,7 +28,7 @@ function App() {
         </main>
       </div>
     </Router>
-  );
+  )
 }
 
 export default App;
