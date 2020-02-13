@@ -1,22 +1,28 @@
 .task-table_task-list {
   margin: 15px; 
   margin-top: 15px;
-}
 
-.task-item_focused-icon {
-  cursor: pointer;
-  margin-top: 5px;
-  margin-left: 10px;
-}
-
-.task-item_view-item-icon {
-  width: 15px;
-  height: 15px;
-  border-width: 3px 3px 0 0 ;
-  border-style: solid;
-  border-color: #2a77db;
-  transform: rotate(45deg);
-  cursor: pointer;
-  margin-top: 2px;
-  margin-left: 10px;
+  .task-item {
+    &_title__done {
+      text-decoration: line-through;
+    }
+    
+    &_focused-icon {
+      cursor: pointer;
+      margin-top: 5px;
+      margin-left: 10px;
+    }
+    
+    &_view-item-icon {
+      width: 15px;
+      height: 15px;
+      border-width: 3px 3px 0 0 ;
+      border-style: solid;
+      border-color: #2a77db;
+      transform: rotate(45deg);
+      cursor: pointer;
+      margin-top: 2px;
+      margin-left: 10px;
+    }
+  }
 }

@@ -32,8 +32,7 @@ export class Nav extends React.Component {
         <li key={item.id} className="projects_item">
           <a>{item.name}</a>
         </li>
-      )
-    )
+      ))
     }
 
     return (
@@ -57,6 +56,6 @@ export class Nav extends React.Component {
           </li>
         </ul>
       </nav>
-    );
+    )
   }
 }

@@ -52,7 +52,15 @@ export class TaskTable extends React.Component {
                       />
                     </td>
                     <td>
-                      <span className="task-item_title">{item.title}</span>
+                      <span
+                        className={
+                          item.isDone
+                            ? "task-item_title task-item_title__done"
+                            : "task-item_title"
+                        }
+                      >
+                        {item.title}
+                      </span>
                     </td>
                     <td>
                       <FocusedIcon
@@ -131,7 +139,15 @@ export class TaskTable extends React.Component {
                       />
                     </td>
                     <td>
-                      <span className="task-item_title">{item.title}</span>
+                      <span
+                        className={
+                          item.isDone
+                            ? "task-item_title task-item_title__done"
+                            : "task-item_title"
+                        }
+                      >
+                        {item.title}
+                      </span>
                     </td>
                     <td>
                       <FocusedIcon
