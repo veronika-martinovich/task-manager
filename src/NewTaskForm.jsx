@@ -2,6 +2,7 @@ import React from "react";
 
 export const NewTaskForm = (props) => {
   return (
+    <div className="new-task_container">
     <form className="new-task_form" action="">
       <input
         className="new-task_title"
@@ -20,5 +21,6 @@ export const NewTaskForm = (props) => {
         Save
       </button>
     </form>
+    </div>
   )
 }

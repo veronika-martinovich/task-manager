@@ -1,31 +1,17 @@
 import React from "react";
+import { TasksContext } from "./TasksContext";
 import { db } from "./firebase";
 import { TaskTable } from "./TaskTable";
 import { NewTaskForm } from "./NewTaskForm";
-import { createTask } from "./tasks";
+import { ViewTaskForm } from "./ViewTaskForm";
 const firebase = require("firebase");
 
 export class TaskBox extends React.Component {
   state = {
-    tasks: null,
     taskToCreate: null,
-    taskToCreateTitle: ""
+    taskToCreateTitle: "",
+    taskToView: null
   };
-
-  componentDidMount() {
-    let tasks = [];
-    db.collection("tasks")
-      .get()
-      .then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-          tasks.push({ id: doc.id, ...doc.data() });
-        });
-        this.setState({
-          tasks
-        });
-        console.log(this.state.tasks);
-      });
-  }
 
   render() {
     let newTaskForm;
@@ -52,10 +38,8 @@ export class TaskBox extends React.Component {
               .doc(`task${this.state.taskToCreate}`)
               .set(taskToCreate)
               .then(() => {
-                const tasksCopy = createTask(this.state.tasks, taskToCreate);
-                this.setState({
-                  tasks: tasksCopy
-                });
+                console.log("Document successfully written!");
+                this.context.createTask(this.state.tasks, taskToCreate);
               })
               .catch(function(error) {
                 console.log(error);
@@ -64,7 +48,9 @@ export class TaskBox extends React.Component {
         />
       );
 
-    if (!this.state.tasks) return <span>"...Loading"</span>;
+   
+    if (this.state.taskToView) return <ViewTaskForm task={this.state.taskToView} />;
+
     return (
       <div className="task-box">
         <h3 className="task-box_heading">Task box</h3>
@@ -74,7 +60,7 @@ export class TaskBox extends React.Component {
             this.setState({
               taskToCreate:
                 Number(
-                  this.state.tasks[this.state.tasks.length - 1].id.slice(4)
+                  this.context.tasks[this.context.tasks.length - 1].id.slice(4)
                 ) + 1
             });
           }}
@@ -82,8 +68,17 @@ export class TaskBox extends React.Component {
           Create task
         </button>
         {newTaskForm}
-        <TaskTable taskType="taskBox" tasks={this.state.tasks} />
+        <TaskTable
+          taskType="taskBox"
+          onViewTaskClick={task => {
+            this.setState({
+              taskToView: task
+            });
+          }}
+        />
       </div>
     );
   }
 }
+
+TaskBox.contextType = TasksContext;

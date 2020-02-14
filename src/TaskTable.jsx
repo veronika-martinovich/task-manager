@@ -1,15 +1,14 @@
 import React from "react";
+import { TasksContext } from "./TasksContext";
 import { FocusedIcon } from "./FocusedIcon";
-import { ViewItemIcon } from "./ViewItemIcon";
+import { ViewTaskIcon } from "./ViewTaskIcon";
 import { Checkbox } from "./Checkbox";
 import { db } from "./firebase";
-import { updateTask } from "./tasks";
 
 export class TaskTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: this.props.tasks,
       taskType: this.props.taskType
     };
   }
@@ -19,7 +18,7 @@ export class TaskTable extends React.Component {
       return (
         <table className="task-table_task-list">
           <tbody>
-            {this.state.tasks.map(item => {
+            {this.context.tasks.map(item => {
               if (!item.projectId)
                 return (
                   <tr className="task-table_task-item" key={item.id}>
@@ -34,16 +33,11 @@ export class TaskTable extends React.Component {
                             })
                             .then(() => {
                               console.log("Document successfully written!");
-                              const tasksCopy = updateTask(
-                                this.state.tasks,
+                              this.context.updateTask(this.context.tasks,
                                 item.id,
                                 {
                                   isDone: !item.isDone
-                                }
-                              );
-                              this.setState({
-                                tasks: tasksCopy
-                              });
+                                })
                             })
                             .catch(function(error) {
                               console.error("Error writing document: ", error);
@@ -64,9 +58,7 @@ export class TaskTable extends React.Component {
                     </td>
                     <td>
                       <FocusedIcon
-                        fillColor={
-                          item.isFocusedOn === false ? "#e6e6e6" : "#fff000"
-                        }
+                        fillColor={item.isFocusedOn}
                         onClick={() => {
                           db.collection("tasks")
                             .doc(`${item.id}`)
@@ -75,16 +67,12 @@ export class TaskTable extends React.Component {
                             })
                             .then(() => {
                               console.log("Document successfully written!");
-                              const tasksCopy = updateTask(
-                                this.state.tasks,
+                              this.context.updateTask(
+                                this.context.tasks,
                                 item.id,
                                 {
                                   isFocusedOn: !item.isFocusedOn
-                                }
-                              );
-                              this.setState({
-                                tasks: tasksCopy
-                              });
+                                });
                             })
                             .catch(function(error) {
                               console.error("Error writing document: ", error);
@@ -93,7 +81,9 @@ export class TaskTable extends React.Component {
                       />
                     </td>
                     <td>
-                      <ViewItemIcon />
+                      <ViewTaskIcon
+                        onClick={() => this.props.onViewTaskClick(item)}
+                      />
                     </td>
                   </tr>
                 );
@@ -106,7 +96,7 @@ export class TaskTable extends React.Component {
       return (
         <table className="task-table_task-list">
           <tbody>
-            {this.state.tasks.map(item => {
+            {this.context.tasks.map(item => {
               if (item.isFocusedOn)
                 return (
                   <tr className="task-table_task-item" key={item.id}>
@@ -121,16 +111,12 @@ export class TaskTable extends React.Component {
                             })
                             .then(() => {
                               console.log("Document successfully written!");
-                              const tasksCopy = updateTask(
-                                this.state.tasks,
+                              this.context.updateTask(
+                                this.context.tasks,
                                 item.id,
                                 {
                                   isDone: !item.isDone
-                                }
-                              );
-                              this.setState({
-                                tasks: tasksCopy
-                              });
+                                });
                             })
                             .catch(function(error) {
                               console.error("Error writing document: ", error);
@@ -151,9 +137,7 @@ export class TaskTable extends React.Component {
                     </td>
                     <td>
                       <FocusedIcon
-                        fillColor={
-                          item.isFocusedOn === false ? "#e6e6e6" : "#fff000"
-                        }
+                        fillColor={item.isFocusedOn}
                         onClick={() => {
                           db.collection("tasks")
                             .doc(`${item.id}`)
@@ -162,16 +146,12 @@ export class TaskTable extends React.Component {
                             })
                             .then(() => {
                               console.log("Document successfully written!");
-                              const tasksCopy = updateTask(
-                                this.state.tasks,
+                              this.context.updateTask(
+                                this.context.tasks,
                                 item.id,
                                 {
                                   isFocusedOn: !item.isFocusedOn
-                                }
-                              );
-                              this.setState({
-                                tasks: tasksCopy
-                              });
+                                });
                             })
                             .catch(function(error) {
                               console.error("Error writing document: ", error);
@@ -180,7 +160,9 @@ export class TaskTable extends React.Component {
                       />
                     </td>
                     <td>
-                      <ViewItemIcon />
+                      <ViewTaskIcon
+                        onClick={() => this.props.onViewTaskClick(item)}
+                      />
                     </td>
                   </tr>
                 );
@@ -190,3 +172,5 @@ export class TaskTable extends React.Component {
       );
   }
 }
+
+TaskTable.contextType = TasksContext;

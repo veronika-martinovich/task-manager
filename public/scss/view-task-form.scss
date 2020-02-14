@@ -1,0 +1,7 @@
+.view-task_container {
+  @extend %block-shared;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: start;
+  margin: 15px;
+}
