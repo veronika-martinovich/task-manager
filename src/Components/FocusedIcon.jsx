@@ -1,12 +1,12 @@
 import React from "react";
 
-export const FocusedIcon = (props) => {
+export const FocusedIcon = props => {
   return (
     <svg
       width="24"
       height="22"
       viewBox="0 0 133 122"
-      className="task-item_focused-icon"
+      className="ico ico_focused"
       onClick={() => props.onClick()}
     >
       <polygon

@@ -3,7 +3,7 @@ import { TasksContext } from "./TasksContext";
 import { FocusedIcon } from "./FocusedIcon";
 import { ViewTaskIcon } from "./ViewTaskIcon";
 import { Checkbox } from "./Checkbox";
-import { db } from "./firebase";
+import { db } from "../firebase";
 
 export class TaskTable extends React.Component {
   constructor(props) {
@@ -16,12 +16,12 @@ export class TaskTable extends React.Component {
   render() {
     if (this.state.taskType === "taskBox")
       return (
-        <table className="task-table_task-list">
+        <table className="task-table">
           <tbody>
             {this.context.tasks.map(item => {
               if (!item.projectId)
                 return (
-                  <tr className="task-table_task-item" key={item.id}>
+                  <tr className="task-table__task-item" key={item.id}>
                     <td>
                       <Checkbox
                         defaultChecked={item.isDone}
@@ -49,8 +49,8 @@ export class TaskTable extends React.Component {
                       <span
                         className={
                           item.isDone
-                            ? "task-item_title task-item_title__done"
-                            : "task-item_title"
+                            ? "task-table__task-title task-table__task-title_done"
+                            : "task-table__task-title"
                         }
                       >
                         {item.title}
@@ -94,7 +94,7 @@ export class TaskTable extends React.Component {
 
     if (this.state.taskType === "focusedTasks")
       return (
-        <table className="task-table_task-list">
+        <table className="task-table">
           <tbody>
             {this.context.tasks.map(item => {
               if (item.isFocusedOn)
@@ -128,8 +128,8 @@ export class TaskTable extends React.Component {
                       <span
                         className={
                           item.isDone
-                            ? "task-item_title task-item_title__done"
-                            : "task-item_title"
+                            ? "task-table__task-title task-table__task-title_done"
+                            : "task-table__task-title"
                         }
                       >
                         {item.title}

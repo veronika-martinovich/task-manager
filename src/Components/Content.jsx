@@ -4,6 +4,7 @@ import { Logo } from "./Logo";
 import { Nav } from "./Nav";
 import { TaskBox } from "./TaskBox";
 import { FocusedTasks } from "./FocusedTasks";
+import { ViewTaskForm } from "./ViewTaskForm";
 
 export const Content = () => {
   return (
@@ -15,6 +16,9 @@ export const Content = () => {
             <Nav />
             <Route path="/task_box">
               <TaskBox />
+            </Route>
+            <Route path="/task_box/:id">
+              <ViewTaskForm />
             </Route>
             <Route path="/focused_tasks">
                 <FocusedTasks />

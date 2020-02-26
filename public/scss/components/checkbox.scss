@@ -1,26 +1,25 @@
-.task-item_checkbox-container {
+.checkbox-container {
   display: block;
   position: relative;
   width: 25px;
   height: 25px;
-  margin-right: 10px;
   cursor: pointer;
 
-  .checkbox-container_checkbox {
+  &__checkbox {
     position: absolute;
     height: 0;
     width: 0;
 
-    &:checked ~ .checkbox-container_checkmark {
-      background-color: #2a77db;
+    &:checked ~ .checkbox-container__checkmark {
+      background-color: $base-color;
     }
 
-    &:checked ~ .checkbox-container_checkmark:after {
+    &:checked ~ .checkbox-container__checkmark:after {
       display: block;
     }
   }
 
-  .checkbox-container_checkmark {
+  &__checkmark {
     position: absolute;
     top: 0;
     left: 0;

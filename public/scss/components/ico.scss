@@ -1,0 +1,12 @@
+.ico {
+  cursor: pointer;
+} 
+
+.ico_view-task {
+  width: 15px;
+  height: 15px;
+  border-width: 3px 3px 0 0 ;
+  border-style: solid;
+  border-color: $base-color-dark;
+  transform: rotate(45deg);
+}

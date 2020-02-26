@@ -1,8 +1,8 @@
 import React from "react";
-import { createTask, updateTask } from "./tasks";
-import { db } from "./firebase";
+import { createTask, updateTask } from "../functionality";
+import { db } from "../firebase";
 import { TasksContext } from "./TasksContext";
-import { Content } from "./Content";
+import { ProjectsProvider } from "./ProjectsProvider";
 
 export class TasksProvider extends React.Component {
   state = {
@@ -46,7 +46,7 @@ export class TasksProvider extends React.Component {
     if (!this.state.tasks) return <span>"...Loading"</span>;
     return (
       <TasksContext.Provider value={this.state}>
-        <Content />
+        <ProjectsProvider />
       </TasksContext.Provider>
     );
   }

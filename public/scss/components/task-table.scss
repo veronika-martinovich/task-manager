@@ -1,0 +1,21 @@
+.task-table {
+  margin-top: 30px;
+
+  & .checkbox-container {
+    margin-right: 10px;
+  }
+
+  &__task-title_done {
+    text-decoration: line-through;
+  }
+
+  & .ico_focused {
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+  
+  & .ico_view-task {
+    margin-top: 2px;
+    margin-left: 10px;
+  }
+}

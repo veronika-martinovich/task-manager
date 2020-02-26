@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import { TasksProvider } from "./TasksProvider";
+import { TasksProvider } from "./Components/TasksProvider";
 
 function App() {
   return (

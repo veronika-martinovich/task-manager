@@ -7,10 +7,10 @@ export const Logo = () => {
         <div className="logo">
           <img
             src="/./images/task_manager.png"
-            className="logo_image"
+            className="logo__image"
             alt="Brain image"
           />
-          <p className="logo_text">Task manager</p>
+          <p className="logo__text">Task manager</p>
         </div>
       </div>
     </header>

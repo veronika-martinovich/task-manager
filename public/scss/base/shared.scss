@@ -1,0 +1,50 @@
+%block-shared {
+  width: 1000px;
+  height: 600px;
+  border: 1px solid #cfcece;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 5px $shadow-color;
+  border-radius: 8px;
+  margin: 15px;
+}
+
+%link-shared {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+%button-shared {
+  width: 150px;
+  height: 40px;
+  background-color: $base-color;
+  border-radius: 5px;
+  border: 1px solid $base-color-dark;
+  font-size: 18px;
+  color: #ffffff;
+  box-shadow: 0px 0px 5px $shadow-color;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $base-color-dark;
+  }
+}
+
+%uneditable-input-shared {
+  padding: 0;
+  border: 0;
+}
+
+%editable-input-shared {
+  border-radius: 5px;
+  border: 1px solid $base-color-dark;
+  box-shadow: 0px 0px 5px $shadow-color;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  &::placeholder {
+    font-size: 16px;
+    font-weight: 300;
+    color: #b6b3b3;
+  }
+}

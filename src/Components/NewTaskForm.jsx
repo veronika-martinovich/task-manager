@@ -2,10 +2,10 @@ import React from "react";
 
 export const NewTaskForm = (props) => {
   return (
-    <div className="new-task_container">
-    <form className="new-task_form" action="">
+    <div className="new-task">
+    <form className="new-task__form" action="">
       <input
-        className="new-task_title"
+        className="new-task__title"
         type="text"
         name="task-title"
         id="task-title"
@@ -15,7 +15,7 @@ export const NewTaskForm = (props) => {
       />
       <button
         type="submit"
-        className="new-task_btn"
+        className="new-task__btn"
         onClick={() => props.onSave()}
       >
         Save

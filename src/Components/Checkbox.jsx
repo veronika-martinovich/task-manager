@@ -2,14 +2,14 @@ import React from "react";
 
 export const Checkbox = props => {
   return (
-    <label className="task-item_checkbox-container">
+    <label className="checkbox-container">
       <input
-        className="checkbox-container_checkbox"
+        className="checkbox-container__checkbox"
         type="checkbox"
         defaultChecked={props.defaultChecked}
         onClick={() => props.onClick()}
       />
-      <span className="checkbox-container_checkmark"></span>
+      <span className="checkbox-container__checkmark"></span>
     </label>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { TasksContext } from "./TasksContext";
-import { db } from "./firebase";
+import { db } from "../firebase";
 import { TaskTable } from "./TaskTable";
 import { NewTaskForm } from "./NewTaskForm";
 import { ViewTaskForm } from "./ViewTaskForm";
@@ -53,9 +53,10 @@ export class TaskBox extends React.Component {
 
     return (
       <div className="task-box">
-        <h3 className="task-box_heading">Task box</h3>
+        <div className="task-box__top-container">
+        <h3 className="task-box__heading">Task box</h3>
         <button
-          className="task-box_btn"
+          className="task-box__btn"
           onClick={() => {
             this.setState({
               taskToCreate:
@@ -67,6 +68,7 @@ export class TaskBox extends React.Component {
         >
           Create task
         </button>
+        </div>
         {newTaskForm}
         <TaskTable
           taskType="taskBox"
