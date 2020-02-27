@@ -1,0 +1,10 @@
+.item-title {
+  font-size: 24px;
+  
+  &_editable {
+    @extend %editable-input-shared;
+  }
+  &_uneditable {
+    @extend %uneditable-input-shared;
+  }
+}

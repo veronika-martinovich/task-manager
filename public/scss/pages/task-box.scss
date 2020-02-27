@@ -16,9 +16,4 @@
     font-size: 36px;
     font-weight: normal;
   }
-
-  &__btn {
-    @extend %button-shared;
-    margin-right: 10px;
-  }
 }

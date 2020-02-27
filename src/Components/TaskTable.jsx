@@ -33,11 +33,9 @@ export class TaskTable extends React.Component {
                             })
                             .then(() => {
                               console.log("Document successfully written!");
-                              this.context.updateTask(this.context.tasks,
-                                item.id,
-                                {
-                                  isDone: !item.isDone
-                                })
+                              this.context.updateTask(item.id, {
+                                isDone: !item.isDone
+                              });
                             })
                             .catch(function(error) {
                               console.error("Error writing document: ", error);
@@ -67,12 +65,9 @@ export class TaskTable extends React.Component {
                             })
                             .then(() => {
                               console.log("Document successfully written!");
-                              this.context.updateTask(
-                                this.context.tasks,
-                                item.id,
-                                {
-                                  isFocusedOn: !item.isFocusedOn
-                                });
+                              this.context.updateTask(item.id, {
+                                isFocusedOn: !item.isFocusedOn
+                              });
                             })
                             .catch(function(error) {
                               console.error("Error writing document: ", error);
@@ -111,12 +106,9 @@ export class TaskTable extends React.Component {
                             })
                             .then(() => {
                               console.log("Document successfully written!");
-                              this.context.updateTask(
-                                this.context.tasks,
-                                item.id,
-                                {
-                                  isDone: !item.isDone
-                                });
+                              this.context.updateTask(item.id, {
+                                isDone: !item.isDone
+                              });
                             })
                             .catch(function(error) {
                               console.error("Error writing document: ", error);
@@ -146,12 +138,9 @@ export class TaskTable extends React.Component {
                             })
                             .then(() => {
                               console.log("Document successfully written!");
-                              this.context.updateTask(
-                                this.context.tasks,
-                                item.id,
-                                {
-                                  isFocusedOn: !item.isFocusedOn
-                                });
+                              this.context.updateTask(item.id, {
+                                isFocusedOn: !item.isFocusedOn
+                              });
                             })
                             .catch(function(error) {
                               console.error("Error writing document: ", error);

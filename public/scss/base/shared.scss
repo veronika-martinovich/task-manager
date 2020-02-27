@@ -1,9 +1,9 @@
 %block-shared {
   width: 1000px;
   height: 600px;
-  border: 1px solid #cfcece;
+  border: $border;
   background-color: #ffffff;
-  box-shadow: 0px 0px 5px $shadow-color;
+  box-shadow: 0px 0px 3px $shadow-color;
   border-radius: 8px;
   margin: 15px;
 }
@@ -15,19 +15,13 @@
 }
 
 %button-shared {
-  width: 150px;
+  width: 130px;
   height: 40px;
-  background-color: $base-color;
   border-radius: 5px;
   border: 1px solid $base-color-dark;
   font-size: 18px;
-  color: #ffffff;
-  box-shadow: 0px 0px 5px $shadow-color;
+  box-shadow: 0px 0px 3px $shadow-color;
   cursor: pointer;
-
-  &:hover {
-    background-color: $base-color-dark;
-  }
 }
 
 %uneditable-input-shared {
@@ -38,7 +32,7 @@
 %editable-input-shared {
   border-radius: 5px;
   border: 1px solid $base-color-dark;
-  box-shadow: 0px 0px 5px $shadow-color;
+  box-shadow: 0px 0px 3px $shadow-color;
   padding-left: 10px;
   padding-right: 10px;
 

@@ -26,16 +26,16 @@ export class TasksProvider extends React.Component {
       });
   }
 
-  updateTask(tasks, taskId, fieldsToUpdate) {
-    const tasksCopy = updateTask(tasks, taskId, fieldsToUpdate);
+  createTask(taskToCreate) {
+    const tasksCopy = createTask(this.state.tasks, taskToCreate);
     this.setState({
       tasks: tasksCopy
     });
     console.log('state', this.state.tasks)
   }
 
-  createTask(tasks, taskToCreate) {
-    const tasksCopy = createTask(tasks, taskToCreate);
+  updateTask(taskId, fieldsToUpdate) {
+    const tasksCopy = updateTask(this.state.tasks, taskId, fieldsToUpdate);
     this.setState({
       tasks: tasksCopy
     });

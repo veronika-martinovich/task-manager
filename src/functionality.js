@@ -1,6 +1,8 @@
+import { db } from "./firebase";
+
 //date formats
 
-export function getDate(date) {
+export function getDate (date) {
   function addZero(number){
     if (number < 10) return `0${number}`;
     else return number;
@@ -10,7 +12,14 @@ export function getDate(date) {
 
 //tasks
 
-export function updateTask(tasks, taskId, fieldsToUpdate) {
+export function createTask (tasks, taskToCreate) {
+  return [
+    ...tasks,
+    taskToCreate
+  ];
+} 
+
+export function updateTask (tasks, taskId, fieldsToUpdate) {
   const taskIndex = tasks.findIndex(task => task.id === taskId);
   const taskToUpdate = tasks[taskIndex];
   const updatedTask = { ...taskToUpdate, ...fieldsToUpdate };
@@ -22,14 +31,26 @@ export function updateTask(tasks, taskId, fieldsToUpdate) {
   ];
 }
 
-export function createTask(tasks, taskToCreate) {
-  return [
-    ...tasks,
-    taskToCreate
-  ];
-} 
+export function createTaskInDB (taskToCreate, newTaskId) {
+  return db.collection("tasks")
+  .doc(`task${newTaskId}`)
+  .set(taskToCreate)
+}
+
+export function updateTaskInDB (taskToEdit, taskId) {
+  return db.collection("tasks")
+  .doc(`${taskId}`)
+  .update(taskToEdit)
+}
 
 //projects
+
+export function createProject(projects, projectToCreate) {
+  return [
+    ...projects,
+    projectToCreate
+  ];
+} 
 
 export function updateProject(projects, projectId, fieldsToUpdate) {
   const projectIndex = projects.findIndex(project => project.id === projectId);
@@ -42,10 +63,3 @@ export function updateProject(projects, projectId, fieldsToUpdate) {
     ...projects.slice(projectIndex + 1)
   ];
 }
-
-export function createProject(projects, projectToCreate) {
-  return [
-    ...projects,
-    projectToCreate
-  ];
-} 
