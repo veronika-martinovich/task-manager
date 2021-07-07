@@ -1,0 +1,23 @@
+// base
+@import '../public/scss/base/normalize';
+@import '../public/scss/base/common';
+@import '../public/scss/base/constants';
+@import '../public/scss/base/shared';
+
+// components
+@import '../public/scss/components/checkbox';
+@import '../public/scss/components/buttons';
+@import '../public/scss/components/ico';
+@import '../public/scss/components/logo';
+@import '../public/scss/components/task-table';
+@import '../public/scss/components/new-task-form';
+@import '../public/scss/components/item-title';
+@import '../public/scss/components/creation-date';
+@import '../public/scss/components/project-select';
+@import '../public/scss/components/description';
+@import '../public/scss/components/view-task-form';
+
+// pages
+@import '../public/scss/pages/nav';
+@import '../public/scss/pages/task-box';
+@import '../public/scss/pages/focused-tasks';

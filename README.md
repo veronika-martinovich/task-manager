@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+To open the project you need to uncomment 'firebaseConfig' in the file 'firebase.js'.
+
 ## Available Scripts
 
 In the project directory, you can run:

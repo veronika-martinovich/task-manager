@@ -1,0 +1,19 @@
+.task-box  {
+  @extend %block-shared;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: start;
+  padding: 30px;
+
+  &__top-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__heading {
+    height: 45px;
+    font-size: 36px;
+    font-weight: normal;
+  }
+}

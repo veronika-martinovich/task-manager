@@ -1,0 +1,18 @@
+.new-task {
+  width: 100%;
+  margin-top: 35px;
+
+  &__form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 300px;
+    height: 100px;
+  }
+
+  &__title {
+    @extend %editable-input-shared;
+    width: 300px;
+    height: 40px;
+  }
+}

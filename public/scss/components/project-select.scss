@@ -1,0 +1,20 @@
+.project {
+
+  &__input {
+    margin-left: 10px;
+    
+    &_uneditable {
+      @extend %uneditable-input-shared;
+    }
+  }
+
+  &__select {
+    margin-left: 10px;
+  
+    &_editable {
+      @extend %editable-input-shared;
+      height: 35px;
+    }
+   }
+ }
+ 

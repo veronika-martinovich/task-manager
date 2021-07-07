@@ -1,0 +1,11 @@
+.primary-button {
+  @extend %button-shared;
+  background-color: $base-color;
+  color: #ffffff;
+}
+
+.secondary-button {
+  @extend %button-shared;
+  background-color: #ffffff;
+  color: $base-color;
+}

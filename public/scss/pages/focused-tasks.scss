@@ -1,0 +1,14 @@
+.focused-tasks  {
+  @extend %block-shared;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: start;
+  padding: 30px;
+
+  &__heading {
+    width: 80%;
+    height: 45px;
+    font-size: 36px;
+    font-weight: normal;
+  }
+}
